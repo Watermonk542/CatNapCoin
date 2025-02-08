@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatNap Coin 😺💤</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(180deg, #f7e7d1, #ffcc99);
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ff6f00;
+        }
+
+        p {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        .cat-container {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .cat-image {
+            width: 350px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, opacity 0.3s;
+            border-radius: 20px;
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cat-image:hover {
+            transform: scale(1.05);
+        }
+
+        .message {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 14px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .telegram-btn {
+            background-color: #0088cc;
+            color: white;
+        }
+
+        .telegram-btn:hover {
+            background-color: #0077b5;
+        }
+
+        .twitter-btn {
+            background-color: #1da1f2;
+            color: white;
+        }
+
+        .twitter-btn:hover {
+            background-color: #0d8aec;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 1em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to CatNap Coin! 😺💤</h1>
+    <p>Click the cat to wake it up or let it sleep!</p>
+
+    <div class="cat-container">
+        <img id="catImage" class="cat-image" src="sleeping-cat.png" alt="Sleeping Cat">
+        <p id="message" class="message">Shhh... The cat is sleeping. 😴</p>
+    </div>
+
+    <div class="social-links">
+        <a href="https://t.me/+yQIOKFrSeEhmY2Y8" target="_blank" class="telegram-btn">Join Telegram</a>
+        <a href="https://twitter.com/CoinNapToken" target="_blank" class="twitter-btn">Follow on X</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CatNap Coin. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let catAwake = false;
+        const catImage = document.getElementById("catImage");
+        const message = document.getElementById("message");
+
+        catImage.addEventListener("click", function() {
+            if (catAwake) {
+                catImage.src = "sleeping-cat.png";
+                message.textContent = "Shhh... The cat is sleeping. 😴";
+            } else {
+                catImage.src = "awake-cat.png";
+                message.textContent = "Meow! The cat is awake! 😺";
+            }
+            catAwake = !catAwake;
+        });
+    </script>
+
+</body>
+</html>
