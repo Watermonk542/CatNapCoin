@@ -21,38 +21,48 @@
         }
 
         h1 {
-            font-size: 2.8em;
+            font-size: 3em;
             font-weight: 600;
-            margin-bottom: 10px;
             color: #ff6f00;
+            margin-bottom: 15px;
         }
 
-        p {
-            font-size: 1.3em;
-            font-weight: 300;
+        .launch-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff6f00;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
         }
 
         .cat-container {
-            margin-top: 30px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .cat-image {
-            width: 350px;
+            width: 320px;
+            margin: 10px auto;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out, opacity 0.3s;
             border-radius: 20px;
-            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
         .cat-image:hover {
             transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .message {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-top: 15px;
+        .cat-text {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-top: 10px;
             color: #444;
         }
 
@@ -65,7 +75,7 @@
             font-size: 1.2em;
             font-weight: bold;
             padding: 14px 30px;
-            border-radius: 8px;
+            border-radius: 25px;
             display: inline-block;
             margin: 10px;
             transition: all 0.3s ease;
@@ -74,19 +84,23 @@
         .telegram-btn {
             background-color: #0088cc;
             color: white;
+            box-shadow: 0px 4px 10px rgba(0, 136, 204, 0.3);
         }
 
         .telegram-btn:hover {
             background-color: #0077b5;
+            box-shadow: 0px 6px 14px rgba(0, 136, 204, 0.5);
         }
 
         .twitter-btn {
             background-color: #1da1f2;
             color: white;
+            box-shadow: 0px 4px 10px rgba(29, 161, 242, 0.3);
         }
 
         .twitter-btn:hover {
             background-color: #0d8aec;
+            box-shadow: 0px 6px 14px rgba(29, 161, 242, 0.5);
         }
 
         footer {
@@ -99,11 +113,16 @@
 <body>
 
     <h1>Welcome to CatNap Coin! 😺💤</h1>
-    <p>Click the cat to wake it up or let it sleep!</p>
+    
+    <!-- Launch Progress Text -->
+    <div class="launch-text">
+        🚀 We need 200 followers to launch! Follow us on X! 🐱
+    </div>
 
+    <!-- Clickable Cat Image + Text -->
     <div class="cat-container">
-        <img id="catImage" class="cat-image" src="sleeping-cat.png" alt="Sleeping Cat">
-        <p id="message" class="message">Shhh... The cat is sleeping. 😴</p>
+        <img id="cat-image" src="sleeping-cat.png" alt="Sleeping Cat" class="cat-image" onclick="toggleCat()">
+        <p id="cat-text" class="cat-text">Click to wake up the cat! 😴</p>
     </div>
 
     <div class="social-links">
@@ -116,20 +135,13 @@
     </footer>
 
     <script>
-        let catAwake = false;
-        const catImage = document.getElementById("catImage");
-        const message = document.getElementById("message");
+        let isAwake = false;
 
-        catImage.addEventListener("click", function() {
-            if (catAwake) {
-                catImage.src = "sleeping-cat.png";
-                message.textContent = "Shhh... The cat is sleeping. 😴";
-            } else {
-                catImage.src = "awake-cat.png";
-                message.textContent = "Meow! The cat is awake! 😺";
-            }
-            catAwake = !catAwake;
-        });
+        function toggleCat() {
+            isAwake = !isAwake;
+            document.getElementById("cat-image").src = isAwake ? "awake-cat.png" : "sleeping-cat.png";
+            document.getElementById("cat-text").innerText = isAwake ? "Click to make the cat sleep! 🐱💤" : "Click to wake up the cat! 😴";
+        }
     </script>
 
 </body>
